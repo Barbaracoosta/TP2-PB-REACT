@@ -1,17 +1,26 @@
-import Button from 'react-bootstrap/Button';
 import './App.css'
+import { Header } from './components/header/Header';
+import AppRoutes from './pages/Routes';
 
 function App() {
-
-
+  const rotasSemHeader = [
+    "/login", "/signin", "forgotPassword"
+  ]
   return (
     <>
-
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-
-  
+    <div className="min-h-full">
+        {
+          rotasSemHeader.includes(location.pathname) ? null : <Header />
+        }
+        
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <main>
+              <AppRoutes />
+            </main>
+          </div>
+        </main>
+      </div>
     </>
   )
 }
